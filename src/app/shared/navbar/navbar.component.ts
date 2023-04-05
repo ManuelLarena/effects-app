@@ -1,27 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class NavbarComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   irUsuario(id: string) {
     if (!id) {
       return;
     }
-    this.router.navigate(['/usuario', id])
-
+    this.router.navigate(['/usuario', id]);
   }
 
+  irUsuarioLink(id: String): string {
+    return !id ? `usuario/1` : `usuario/${id}`;
+  }
 }

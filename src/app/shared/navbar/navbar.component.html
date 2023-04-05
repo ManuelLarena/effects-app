@@ -7,7 +7,7 @@
         <a class="nav-link" routerLink="home">Home</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="usuario/1">Usuario</a>
+        <a class="nav-link" [routerLink]="irUsuarioLink(txtInput.value)">Usuario</a>
       </li>
     </ul>
 

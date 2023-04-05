@@ -1,1 +1,27 @@
-<p>usuario works!</p>
+<ng-container *ngIf="usuario$ | async as user">
+  <div class="alert alert-info text-center" role="alert" *ngIf="loading">
+    <h4 class="alert-heading">Cargando...</h4>
+    <p>
+      <i class="fa fa-sync fa-spin fa-2x"></i>
+    </p>
+    <p class="mb-0"></p>
+  </div>
+  <div class="alert alert-danger text-center" role="alert" *ngIf="error">
+    <h4 class="alert-heading">Error...</h4>
+    <pre>
+      {{ error | json }}
+    </pre>
+    <p class="mb-0"></p>
+  </div>
+  <div class="media" *ngIf="!loading && !error">
+    <img
+      class="align-self-center img-thumbnail rounded mr-3"
+      [src]="user.avatar"
+      alt="avatar"
+    />
+    <div class="media-body">
+      <h5 class="mt-0">{{ user.first_name }} {{ user.last_name }}</h5>
+      <p>{{ user.email }}</p>
+    </div>
+  </div>
+</ng-container>
